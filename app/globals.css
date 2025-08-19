@@ -3,8 +3,36 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Voice recording animation */
+@keyframes voice-wave {
+  0%, 100% { 
+    height: 2px;
+    opacity: 0.4;
+  }
+  50% { 
+    height: 12px;
+    opacity: 1;
+  }
+}
+
+.voice-wave-dot {
+  animation: voice-wave 1.5s ease-in-out infinite;
+}
+
 :root {
-  --background: oklch(1 0 0);
+  /* Font families */
+  --font-noto-sans: "noto-sans", sans-serif;
+  --font-noto-sans-condensed: "noto-sans-condensed", sans-serif;
+  --font-noto-sans-semicondensed: "noto-sans-semicondensed", sans-serif;
+  --font-noto-sans-extracondensed: "noto-sans-extracondensed", sans-serif;
+  
+  /* Color variables */
+  --tidymind-orange: #FF6900; /* TidyMind brand orange */
+  --tidymind-accent: #FF6900; /* Orange in light mode, will be cyan in dark mode */
+  --cyan: oklch(0.70 0.16 210); /* Cyan color */
+  --periwinkle: oklch(0.70 0.12 265); /* Periwinkle for light mode */
+  --lavender: oklch(0.75 0.06 265); /* Lavender for light mode */
+  --background: oklch(0.94 0.02 265); /* #E8EBFA - pale blue */
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -40,7 +68,8 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --tidymind-accent: oklch(0.70 0.16 210); /* Cyan in dark mode */
+  --background: oklch(0.20 0.02 265); /* Deep midnight blue */
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.145 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -54,6 +83,10 @@
   --muted-foreground: oklch(0.708 0 0);
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
+  --pale-blue: oklch(0.20 0.02 265); /* Deep midnight blue for dark mode */
+  --cyan: oklch(0.70 0.16 210); /* Slightly muted cyan */
+  --periwinkle: oklch(0.65 0.15 265); /* Brighter periwinkle */
+  --lavender: oklch(0.55 0.08 265); /* Deeper lavender */
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);
   --border: oklch(0.269 0 0);
@@ -75,6 +108,13 @@
 }
 
 @theme inline {
+  /* Font families */
+  --font-family-noto-sans: var(--font-noto-sans);
+  --font-family-noto-condensed: var(--font-noto-sans-condensed);
+  --font-family-noto-semicondensed: var(--font-noto-sans-semicondensed);
+  --font-family-noto-extracondensed: var(--font-noto-sans-extracondensed);
+  
+  /* Color variables */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -89,6 +129,10 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-pale-blue: var(--pale-blue);
+  --color-cyan: var(--cyan);
+  --color-periwinkle: var(--periwinkle);
+  --color-lavender: var(--lavender);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
@@ -117,7 +161,42 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    font-size: 16px; /* Base font size for rem calculations */
+  }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-noto-sans);
+    font-size: 1rem; /* 16px */
+    font-weight: 400;
+    font-style: normal;
+  }
+}
+
+@layer utilities {
+  /* Noto Sans utility classes */
+  .font-noto-sans {
+    font-family: var(--font-noto-sans);
+  }
+  
+  .font-noto-condensed {
+    font-family: var(--font-noto-sans-condensed);
+  }
+  
+  .font-noto-semicondensed {
+    font-family: var(--font-noto-sans-semicondensed);
+  }
+  
+  .font-noto-extracondensed {
+    font-family: var(--font-noto-sans-extracondensed);
+  }
+  
+  /* Hide scrollbar utility */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
   }
 }

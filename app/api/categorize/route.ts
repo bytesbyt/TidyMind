@@ -21,6 +21,11 @@ export async function POST(request: NextRequest) {
       - Goal: Aspirations, objectives, long-term plans
       - Thought: Random thoughts, observations, reflections
       - Question: Things to research, questions to ask, curiosities
+      - Articles: Article links, reading materials, blog posts
+      - Notes: General notes, meeting notes, lecture notes
+      - Images: References to images, photos, visual content
+      - Bookmarks: Links to save, websites to remember, resources
+      - Inspiration: Motivational content, quotes, creative inspiration
       - Other: Anything that doesn't fit the above categories
       
       Respond with ONLY the category name, nothing else.`,
@@ -30,7 +35,7 @@ export async function POST(request: NextRequest) {
     const category = text.trim()
 
     // Validate the category
-    const validCategories = ["Task", "Idea", "Reminder", "Goal", "Thought", "Question", "Other"]
+    const validCategories = ["Task", "Idea", "Reminder", "Goal", "Thought", "Question", "Articles", "Notes", "Images", "Bookmarks", "Inspiration", "Other"]
     const finalCategory = validCategories.includes(category) ? category : "Other"
 
     return NextResponse.json({ category: finalCategory })
