@@ -83,7 +83,7 @@ export function Hero({ newNote, setNewNote, onAddNote, isLoading }: HeroProps) {
         </div>
         
         <Textarea
-          placeholder={isVoiceRecording ? "" : "What's on your mind? I'll help organize it!"}
+          placeholder={isVoiceRecording ? "" : "여기에 무엇이든 입력하세요... 정리는 맡겨주세요!"}
           value={newNote}
           onChange={(e) => setNewNote(e.target.value)}
           className={`min-h-[130px] text-lg md:text-l font-noto-sans focus:outline-none focus:ring-0 focus:border-transparent border-transparent backdrop-blur-sm rounded-[2rem] px-5 md:px-6 py-3 md:py-4 pr-24 md:pr-32 focus-visible:ring-0 focus-visible:ring-offset-0 resize-none transition-all ${
