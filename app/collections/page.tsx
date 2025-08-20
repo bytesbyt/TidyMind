@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { Trash2, Calendar, Clock, Edit2, Save, X, Plus, Settings } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { TopNavigation } from "@/components/top-navigation"
@@ -275,7 +274,7 @@ export default function CollectionsPage() {
           <div className="flex-1 bg-background">
             {selectedNote ? (
               <div className="h-full flex flex-col">
-                <div className="border-b border-border p-6">
+                <div className="p-6">
                   <div className="flex items-start justify-between">
                     <div>
                       <h1 className="text-2xl font-playfair-semibold mb-2">
@@ -290,7 +289,7 @@ export default function CollectionsPage() {
                           <Clock className="h-4 w-4" />
                           {selectedNote.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                         </div>
-                        <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium border ${selectedNote.color}`}>
+                        <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium border ${selectedNote.color}`} style={{ backgroundColor: 'white' }}>
                           {selectedNote.category.toLowerCase()}
                         </span>
                       </div>
@@ -376,7 +375,7 @@ export default function CollectionsPage() {
               
               {/* Category Manager */}
               {showCategoryManager && (
-                <div className="mb-3 p-3 bg-muted/30 rounded-lg">
+                <div className="mb-3 p-3 bg-background rounded-lg">
                   <div className="flex gap-2 mb-2">
                     <Input
                       type="text"
@@ -410,6 +409,7 @@ export default function CollectionsPage() {
                           <div
                             key={category}
                             className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs border ${colorClass}`}
+                            style={{ backgroundColor: 'white' }}
                           >
                             <span>{category.toLowerCase()}</span>
                             <button
@@ -444,20 +444,7 @@ export default function CollectionsPage() {
                           : `${colorClass} bg-transparent hover:bg-gray-50`
                       )}
                       style={{
-                        backgroundColor: selectedCategory === category 
-                          ? `${colorClass.includes('blue') ? 'rgba(59, 130, 246, 0.1)' :
-                              colorClass.includes('purple') ? 'rgba(168, 85, 247, 0.1)' :
-                              colorClass.includes('orange') ? 'rgba(249, 115, 22, 0.1)' :
-                              colorClass.includes('green') ? 'rgba(34, 197, 94, 0.1)' :
-                              colorClass.includes('pink') ? 'rgba(236, 72, 153, 0.1)' :
-                              colorClass.includes('yellow') ? 'rgba(234, 179, 8, 0.1)' :
-                              colorClass.includes('red') ? 'rgba(248, 113, 113, 0.1)' :
-                              colorClass.includes('rose') ? 'rgba(251, 113, 133, 0.1)' :
-                              colorClass.includes('amber') ? 'rgba(251, 191, 36, 0.1)' :
-                              colorClass.includes('fuchsia') ? 'rgba(217, 70, 239, 0.1)' :
-                              colorClass.includes('cyan') ? 'rgba(34, 211, 238, 0.1)' :
-                              'rgba(156, 163, 175, 0.1)'}`
-                          : 'transparent'
+                        backgroundColor: 'white'
                       }}
                     >
                       {category === "all" ? "all" : category.toLowerCase()}
@@ -480,23 +467,34 @@ export default function CollectionsPage() {
                           key={note.id}
                           onClick={() => setSelectedNote(note)}
                           className={cn(
-                            "p-3 rounded-lg cursor-pointer transition-all bg-white dark:bg-card hover:bg-gray-50 dark:hover:bg-muted/50",
-                            selectedNote?.id === note.id ? "shadow-sm border border-border" : ""
+                            "p-3 rounded-lg cursor-pointer transition-all",
+                            selectedNote?.id === note.id 
+                              ? "shadow-sm border border-border bg-[var(--periwinkle)] dark:bg-[var(--periwinkle)] text-white dark:text-white" 
+                              : "bg-white dark:bg-card hover:bg-gray-50 dark:hover:bg-muted/50"
                           )}
                         >
                           <div className="flex items-start justify-between gap-2">
                             <div className="flex-1 min-w-0">
-                              <p className="text-sm font-medium truncate">
+                              <p className={cn(
+                                "text-sm font-medium truncate",
+                                selectedNote?.id === note.id ? "text-white" : ""
+                              )}>
                                 {note.title || "Untitled"}
                               </p>
-                              <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
+                              <p className={cn(
+                                "text-xs mt-1 line-clamp-2",
+                                selectedNote?.id === note.id ? "text-white/90" : "text-muted-foreground"
+                              )}>
                                 {note.content}
                               </p>
                               <div className="flex items-center gap-2 mt-2">
-                                <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border ${note.color}`}>
+                                <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border ${note.color}`} style={{ backgroundColor: 'white' }}>
                                   {note.category.toLowerCase()}
                                 </span>
-                                <span className="text-xs text-muted-foreground">
+                                <span className={cn(
+                                  "text-xs",
+                                  selectedNote?.id === note.id ? "text-white/80" : "text-muted-foreground"
+                                )}>
                                   {note.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                                 </span>
                               </div>
