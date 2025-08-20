@@ -22,9 +22,17 @@
 :root {
   /* Font families */
   --font-noto-sans: "noto-sans", sans-serif;
+  --font-noto-sans-thin: "noto-sans", sans-serif;
+  --font-noto-sans-extralight: "noto-sans", sans-serif;
+  --font-noto-sans-light: "noto-sans", sans-serif;
   --font-noto-sans-condensed: "noto-sans-condensed", sans-serif;
   --font-noto-sans-semicondensed: "noto-sans-semicondensed", sans-serif;
   --font-noto-sans-extracondensed: "noto-sans-extracondensed", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-playfair-regular: "Playfair Display", serif;
+  --font-playfair-regular-italic: "Playfair Display", serif;
+  --font-playfair-semibold: "Playfair Display", serif;
+  --font-playfair-bold: "Playfair Display", serif;
   
   /* Color variables */
   --tidymind-orange: #FF6900; /* TidyMind brand orange */
@@ -110,6 +118,9 @@
 @theme inline {
   /* Font families */
   --font-family-noto-sans: var(--font-noto-sans);
+  --font-family-noto-sans-thin: var(--font-noto-sans-thin);
+  --font-family-noto-sans-extralight: var(--font-noto-sans-extralight);
+  --font-family-noto-sans-light: var(--font-noto-sans-light);
   --font-family-noto-condensed: var(--font-noto-sans-condensed);
   --font-family-noto-semicondensed: var(--font-noto-sans-semicondensed);
   --font-family-noto-extracondensed: var(--font-noto-sans-extracondensed);
@@ -179,16 +190,185 @@
     font-family: var(--font-noto-sans);
   }
   
+  .font-noto-sans-regular {
+    font-family: var(--font-noto-sans);
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .font-noto-sans-italic {
+    font-family: var(--font-noto-sans);
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .font-noto-sans-thin {
+    font-family: var(--font-noto-sans-thin);
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  .font-noto-sans-extralight {
+    font-family: var(--font-noto-sans-extralight);
+    font-weight: 200;
+    font-style: normal;
+  }
+  
+  .font-noto-sans-light {
+    font-family: var(--font-noto-sans-light);
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .font-noto-sans-bold {
+    font-family: var(--font-noto-sans);
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .font-noto-sans-bold-italic {
+    font-family: var(--font-noto-sans);
+    font-weight: 700;
+    font-style: italic;
+  }
+  
   .font-noto-condensed {
     font-family: var(--font-noto-sans-condensed);
+  }
+  
+  .font-noto-condensed-thin {
+    font-family: var(--font-noto-sans-condensed);
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  .font-noto-condensed-light {
+    font-family: var(--font-noto-sans-condensed);
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .font-noto-condensed-light-italic {
+    font-family: var(--font-noto-sans-condensed);
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .font-noto-condensed-regular {
+    font-family: var(--font-noto-sans-condensed);
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .font-noto-condensed-italic {
+    font-family: var(--font-noto-sans-condensed);
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .font-noto-condensed-semibold {
+    font-family: var(--font-noto-sans-condensed);
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .font-noto-condensed-semibold-italic {
+    font-family: var(--font-noto-sans-condensed);
+    font-weight: 600;
+    font-style: italic;
+  }
+  
+  .font-noto-condensed-bold {
+    font-family: var(--font-noto-sans-condensed);
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .font-noto-condensed-bold-italic {
+    font-family: var(--font-noto-sans-condensed);
+    font-weight: 700;
+    font-style: italic;
   }
   
   .font-noto-semicondensed {
     font-family: var(--font-noto-sans-semicondensed);
   }
   
+  .font-noto-semicondensed-regular {
+    font-family: var(--font-noto-sans-semicondensed);
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .font-noto-semicondensed-italic {
+    font-family: var(--font-noto-sans-semicondensed);
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .font-noto-semicondensed-bold {
+    font-family: var(--font-noto-sans-semicondensed);
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .font-noto-semicondensed-bold-italic {
+    font-family: var(--font-noto-sans-semicondensed);
+    font-weight: 700;
+    font-style: italic;
+  }
+  
   .font-noto-extracondensed {
     font-family: var(--font-noto-sans-extracondensed);
+  }
+  
+  .font-noto-extracondensed-regular {
+    font-family: var(--font-noto-sans-extracondensed);
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .font-noto-extracondensed-italic {
+    font-family: var(--font-noto-sans-extracondensed);
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .font-noto-extracondensed-bold {
+    font-family: var(--font-noto-sans-extracondensed);
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .font-noto-extracondensed-bold-italic {
+    font-family: var(--font-noto-sans-extracondensed);
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  /* Playfair Display utility classes */
+  .font-playfair-regular {
+    font-family: var(--font-playfair-regular);
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .font-playfair-regular-italic {
+    font-family: var(--font-playfair-regular-italic);
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .font-playfair-semibold {
+    font-family: var(--font-playfair-semibold);
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .font-playfair-bold {
+    font-family: var(--font-playfair-bold);
+    font-weight: 700;
+    font-style: normal;
   }
   
   /* Hide scrollbar utility */

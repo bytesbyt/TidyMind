@@ -1,17 +1,11 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Playfair_Display } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
 
-const playfair = Playfair_Display({ 
-  subsets: ["latin"],
-  variable: "--font-serif",
-})
-
 export const metadata: Metadata = {
   title: "TidyMind - AI-Powered Thought Organization",
-  description: "Capture your thoughts and let AI organize them for you. Perfect for ADHD minds.",
+  description: "Capture your thoughts and let AI organize them for you.",
   generator: "v0.app",
 }
 
@@ -21,9 +15,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`font-noto-sans ${playfair.variable}`} suppressHydrationWarning>
+    <html lang="en" className="font-noto-sans" suppressHydrationWarning>
       <head>
-        <link rel="stylesheet" href="https://use.typekit.net/irp1xop.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://use.typekit.net/wwp2kbm.css" />
       </head>
       <body className="antialiased">
         <ThemeProvider

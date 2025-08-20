@@ -54,7 +54,7 @@ export default function HomePage() {
               <p className="text-xs md:text-sm font-semibold tracking-[0.2em] mb-8 text-[var(--tidymind-orange)] dark:text-cyan-400">
                 TIDYMIND WORKS
               </p>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.2] mb-8" style={{ fontFamily: 'var(--font-serif)' }}>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-playfair-bold leading-[1.2] mb-8">
                 Drop your thoughts.
               </h1>
               <p className="text-base md:text-lg text-muted-foreground/70 max-w-lg mx-auto leading-relaxed">

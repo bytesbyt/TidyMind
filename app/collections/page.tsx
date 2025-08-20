@@ -278,7 +278,7 @@ export default function CollectionsPage() {
                 <div className="border-b border-border p-6">
                   <div className="flex items-start justify-between">
                     <div>
-                      <h1 className="text-2xl font-semibold mb-2 font-serif">
+                      <h1 className="text-2xl font-playfair-semibold mb-2">
                         {selectedNote.title || "Untitled Memo"}
                       </h1>
                       <div className="flex items-center gap-4 text-sm text-muted-foreground">
@@ -364,7 +364,7 @@ export default function CollectionsPage() {
           <div className="w-80 border-l border-border bg-background overflow-y-auto">
             <div className="p-4 border-b border-border bg-background sticky top-0 z-10">
               <div className="flex items-center justify-between mb-3">
-                <h2 className="text-lg font-serif">Collection</h2>
+                <h2 className="text-lg font-playfair-regular">Collection</h2>
                 <button
                   onClick={() => setShowCategoryManager(!showCategoryManager)}
                   className="p-1 hover:bg-muted rounded transition-colors"

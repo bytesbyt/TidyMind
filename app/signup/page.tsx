@@ -33,7 +33,7 @@ export default function SignUpPage() {
         {/* Sign up card */}
         <div className="bg-card/50 backdrop-blur-sm rounded-xl px-4 py-5 md:py-8 border border-border">
           <div className="text-center mb-6">
-            <h1 className="text-lg md:text-xl mb-1" style={{ fontFamily: 'var(--font-serif)' }}>Create account</h1>
+            <h1 className="text-lg md:text-xl mb-1 font-playfair-regular">Create account</h1>
             <p className="text-xs md:text-sm text-muted-foreground/70">Join TidyMind to organize your thoughts</p>
           </div>
 

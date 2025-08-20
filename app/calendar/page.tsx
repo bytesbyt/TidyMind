@@ -343,7 +343,7 @@ export default function CalendarPage() {
             {/* Calendar Header */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-border bg-white dark:bg-card">
               <div className="flex items-center gap-4">
-                <h2 className="text-2xl font-serif">
+                <h2 className="text-2xl font-playfair-regular">
                   {monthNames[currentDate.getMonth()]} {currentDate.getFullYear()}
                 </h2>
                 <div className="flex gap-1">
