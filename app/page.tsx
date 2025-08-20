@@ -9,7 +9,6 @@ import { Footer } from "@/components/footer"
 
 export default function HomePage() {
   const [newNote, setNewNote] = useState("")
-  const [searchTerm, setSearchTerm] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
 
@@ -44,7 +43,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
       <LeftNavigation />
-      <TopNavigation searchTerm={searchTerm} onSearchChange={setSearchTerm} />
+      <TopNavigation />
 
       <div className="md:pl-20">
         {/* Hero Section - Full height */}

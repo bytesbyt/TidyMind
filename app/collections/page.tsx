@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Trash2, Calendar, Clock, Edit2, Save, X, Plus, Settings } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { TopNavigation } from "@/components/top-navigation"
@@ -37,7 +36,6 @@ const defaultCategoryColors = {
 
 export default function CollectionsPage() {
   const [notes, setNotes] = useState<Note[]>([])
-  const [searchTerm, setSearchTerm] = useState("")
   const [selectedNote, setSelectedNote] = useState<Note | null>(null)
   const [selectedCategory, setSelectedCategory] = useState<string>("all")
   const [isEditing, setIsEditing] = useState(false)
@@ -220,11 +218,8 @@ export default function CollectionsPage() {
   }
 
   const filteredNotes = notes.filter((note) => {
-    const matchesSearch =
-      note.content.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      note.category.toLowerCase().includes(searchTerm.toLowerCase())
     const matchesCategory = selectedCategory === "all" || note.category === selectedCategory
-    return matchesSearch && matchesCategory
+    return matchesCategory
   })
 
   // Group notes by date
@@ -266,7 +261,7 @@ export default function CollectionsPage() {
   return (
     <div className="h-screen bg-background flex flex-col overflow-hidden">
       <LeftNavigation />
-      <TopNavigation searchTerm={searchTerm} onSearchChange={setSearchTerm} />
+      <TopNavigation />
 
       <div className="md:pl-20 flex-1 flex flex-col overflow-hidden">
         <div className="pt-20 md:pt-24 pb-24 flex-1 flex max-w-6xl mx-auto w-full px-4 overflow-hidden h-full">
@@ -507,7 +502,7 @@ export default function CollectionsPage() {
                 )
               })}
               
-              {filteredNotes.length === 0 && searchTerm && (
+              {filteredNotes.length === 0 && (
                 <div className="text-center py-12">
                   <p className="text-sm text-muted-foreground">
                     No memos found

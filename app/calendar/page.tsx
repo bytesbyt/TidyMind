@@ -18,7 +18,6 @@ interface TasksData {
 
 export default function CalendarPage() {
   const [currentDate, setCurrentDate] = useState(new Date(2025, 7, 1)) // August 2025
-  const [searchTerm, setSearchTerm] = useState("")
   const [selectedCalendars, setSelectedCalendars] = useState({
     tasks: true,
     birthdays: true,
@@ -196,7 +195,7 @@ export default function CalendarPage() {
   return (
     <div className="min-h-screen bg-background">
       <LeftNavigation />
-      <TopNavigation searchTerm={searchTerm} onSearchChange={setSearchTerm} transparentBg={false} whiteBg={true} />
+      <TopNavigation transparentBg={false} whiteBg={true} />
 
       <div className="md:pl-20 pt-24">
         <div className="flex h-[calc(100vh-6rem)]">
