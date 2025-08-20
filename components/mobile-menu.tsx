@@ -13,8 +13,11 @@ interface MobileMenuProps {
 }
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
-  const { theme, setTheme, systemTheme } = useTheme()
+  const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  
+  // Use black logo in light mode, white logo in dark mode
+  const logoSrc = mounted && theme === "dark" ? "/tm_side_white0.png" : "/tm_side_black0.png"
 
   useEffect(() => {
     setMounted(true)
@@ -32,9 +35,6 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     }
   }, [isOpen])
 
-  const currentTheme = theme === "system" ? systemTheme : theme
-  const logoSrc = mounted && currentTheme === "dark" ? "/tm_logd_dm.png" : "/tm_logo.png"
-
   if (!isOpen) return null
 
   return (
@@ -48,7 +48,13 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           {/* Header with Logo and Close Button */}
           <div className="flex items-center justify-between mb-8">
             <Link href="/" onClick={onClose}>
-              <Image src={logoSrc} alt="Logo" width={48} height={38} className="object-contain cursor-pointer" />
+              <Image 
+                src={logoSrc} 
+                alt="TidyMind Logo" 
+                width={120} 
+                height={30} 
+                className="object-contain cursor-pointer"
+              />
             </Link>
             <Button
               variant="ghost"
