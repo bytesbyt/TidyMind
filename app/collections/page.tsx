@@ -264,14 +264,14 @@ export default function CollectionsPage() {
   const groupedNotes = groupNotesByDate(filteredNotes)
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="h-screen bg-background flex flex-col overflow-hidden">
       <LeftNavigation />
       <TopNavigation searchTerm={searchTerm} onSearchChange={setSearchTerm} />
 
-      <div className="md:pl-20 flex-1 flex flex-col">
-        <div className="pt-20 md:pt-24 flex-1 flex max-w-6xl mx-auto w-full px-4">
+      <div className="md:pl-20 flex-1 flex flex-col overflow-hidden">
+        <div className="pt-20 md:pt-24 pb-24 flex-1 flex max-w-6xl mx-auto w-full px-4 overflow-hidden h-full">
           {/* Left Panel - Memo Details */}
-          <div className="flex-1 bg-background">
+          <div className="flex-1 bg-background h-full overflow-hidden">
             {selectedNote ? (
               <div className="h-full flex flex-col">
                 <div className="p-6">
@@ -338,7 +338,7 @@ export default function CollectionsPage() {
                   </div>
                 </div>
                 
-                <div className="flex-1 p-6 overflow-y-auto">
+                <div className="flex-1 p-6 overflow-y-auto scrollbar-hide">
                   <div className="max-w-4xl">
                     {isEditing ? (
                       <Textarea
@@ -360,7 +360,7 @@ export default function CollectionsPage() {
           </div>
 
           {/* Right Panel - Memo List */}
-          <div className="w-80 border-l border-border bg-background overflow-y-auto">
+          <div className="w-80 border-l border-border bg-background overflow-y-auto h-full scrollbar-hide">
             <div className="p-4 border-b border-border bg-background sticky top-0 z-10">
               <div className="flex items-center justify-between mb-3">
                 <h2 className="text-lg font-playfair-regular">Collection</h2>
