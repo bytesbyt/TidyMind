@@ -1,0 +1,161 @@
+.fullcalendar-container {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+/* Header Styling */
+.fc-toolbar-title {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 1.5rem !important;
+  font-weight: 400 !important;
+}
+
+.fc-button {
+  background-color: transparent !important;
+  border: 1px solid var(--border) !important;
+  color: var(--foreground) !important;
+  font-weight: 400 !important;
+  padding: 0.25rem 0.75rem !important;
+  font-size: 0.875rem !important;
+  transition: all 0.2s !important;
+}
+
+.fc-button:hover {
+  background-color: var(--muted) !important;
+  border-color: var(--border) !important;
+}
+
+.fc-button-active {
+  background-color: var(--tidymind-orange) !important;
+  border-color: var(--tidymind-orange) !important;
+  color: white !important;
+}
+
+.fc-button:disabled {
+  opacity: 0.5 !important;
+}
+
+/* Calendar Grid */
+.fc-daygrid {
+  border: 1px solid var(--border) !important;
+}
+
+.fc-scrollgrid {
+  border-color: var(--border) !important;
+}
+
+.fc-col-header-cell {
+  background-color: var(--muted) !important;
+  padding: 0.75rem 0 !important;
+  font-weight: 500 !important;
+  font-size: 0.875rem !important;
+  color: var(--muted-foreground) !important;
+  border-color: var(--border) !important;
+}
+
+.fc-daygrid-day {
+  border-color: var(--border) !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s !important;
+}
+
+.fc-daygrid-day:hover {
+  background-color: var(--muted) !important;
+  background-color: rgba(0, 0, 0, 0.02) !important;
+}
+
+.fc-daygrid-day-number {
+  padding: 0.5rem !important;
+  font-size: 0.875rem !important;
+  color: var(--foreground) !important;
+}
+
+.fc-day-today {
+  background-color: rgba(var(--tidymind-orange-rgb), 0.05) !important;
+}
+
+.fc-day-today .fc-daygrid-day-number {
+  background-color: var(--tidymind-orange) !important;
+  color: white !important;
+  border-radius: 0.25rem !important;
+  width: 1.75rem !important;
+  height: 1.75rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: 500 !important;
+}
+
+/* Events */
+.fc-event {
+  border: none !important;
+  padding: 0.125rem 0.5rem !important;
+  font-size: 0.75rem !important;
+  margin: 0.125rem 0.25rem !important;
+  border-radius: 0.25rem !important;
+  cursor: pointer !important;
+  transition: opacity 0.2s !important;
+}
+
+.fc-event:hover {
+  opacity: 0.8 !important;
+}
+
+.fc-event-title {
+  font-weight: 400 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.fc-daygrid-event-dot {
+  display: none !important;
+}
+
+.fc-daygrid-day-events {
+  margin-top: 0.25rem !important;
+}
+
+/* More Events Link */
+.fc-daygrid-more-link {
+  color: var(--tidymind-orange) !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+}
+
+/* Day Cell */
+.fc-daygrid-day-frame {
+  min-height: 7rem !important;
+}
+
+/* Other Month Days */
+.fc-day-other .fc-daygrid-day-number {
+  color: var(--muted-foreground) !important;
+  opacity: 0.5 !important;
+}
+
+/* CSS Variables for TidyMind Orange */
+:root {
+  --tidymind-orange-rgb: 255, 147, 0;
+}
+
+/* Dark mode adjustments */
+.dark .fc-button {
+  border-color: var(--border) !important;
+}
+
+.dark .fc-daygrid-day:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.dark .fc-event {
+  opacity: 0.9 !important;
+}
+
+/* Remove default borders */
+.fc th, .fc td {
+  border-color: var(--border) !important;
+}
+
+.fc-theme-standard .fc-scrollgrid {
+  border-color: var(--border) !important;
+}

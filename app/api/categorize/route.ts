@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server"
 import { generateText } from "ai"
-import { groq } from "@ai-sdk/groq"
+import { createGroq } from "@ai-sdk/groq"
 
 export async function POST(request: NextRequest) {
   try {
@@ -9,6 +9,10 @@ export async function POST(request: NextRequest) {
     if (!content) {
       return NextResponse.json({ error: "Content is required" }, { status: 400 })
     }
+
+    const groq = createGroq({
+      apiKey: process.env.GROQ_API_KEY
+    })
 
     const { text } = await generateText({
       model: groq("llama-3.1-8b-instant"),

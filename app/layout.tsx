@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
+import "../styles/fullcalendar.css"
 
 export const metadata: Metadata = {
   title: "TidyMind - AI-Powered Thought Organization",
